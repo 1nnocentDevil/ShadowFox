@@ -1,0 +1,66 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
+
+# ---- 1. Line Plot ----
+x = np.linspace(0, 10, 200)
+plt.figure()
+plt.plot(x, np.sin(x), label='sin(x)')
+plt.plot(x, np.cos(x), '--', label='cos(x)')
+plt.title("Line Plot")
+plt.xlabel("X")
+plt.ylabel("Amplitude")
+plt.legend()
+plt.grid(True)
+plt.show()
+
+# ---- 2. Scatter Plot ----
+np.random.seed(42)
+x = np.random.randn(150)
+y = 2 * x + np.random.randn(150)
+plt.figure()
+plt.scatter(x, y)
+plt.title("Scatter Plot")
+plt.show()
+
+# ---- 3. Bar Chart ----
+categories = ['Q1', 'Q2', 'Q3', 'Q4']
+values = [18500, 22000, 19750, 27300]
+plt.figure()
+plt.bar(categories, values)
+plt.title("Bar Chart")
+plt.show()
+
+# ---- 4. Histogram ----
+data = np.random.normal(170, 10, 600)
+plt.figure()
+plt.hist(data, bins=30)
+plt.title("Histogram")
+plt.show()
+
+# ---- 5. Seaborn Scatter ----
+tips = sns.load_dataset('tips')
+plt.figure()
+sns.scatterplot(data=tips, x='total_bill', y='tip')
+plt.title("Seaborn Scatter")
+plt.show()
+
+# ---- 6. Seaborn Line ----
+fmri = sns.load_dataset('fmri')
+plt.figure()
+sns.lineplot(data=fmri, x='timepoint', y='signal')
+plt.title("Seaborn Line")
+plt.show()
+
+# ---- 7. Seaborn Bar ----
+plt.figure()
+sns.barplot(data=tips, x='day', y='total_bill')
+plt.title("Seaborn Bar")
+plt.show()
+
+# ---- 8. Histogram + KDE ----
+penguins = sns.load_dataset('penguins')
+plt.figure()
+sns.histplot(data=penguins, x='flipper_length_mm', kde=True)
+plt.title("Histogram + KDE")
+plt.show()
